@@ -1,0 +1,14 @@
+td {
+	padding: 20px;
+	background-color: white;
+}
+
+td.ship {
+	background-color: red;
+}
+
+table, tr {
+	padding: 0;
+	margin: 5px;
+	background-color: grey;
+}
