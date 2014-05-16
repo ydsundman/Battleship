@@ -29,12 +29,27 @@ module.exports = function(grunt) {
 			options: {
 				jshintrc: '.jshintrc'
 			}
+		},
+		watch: {
+			scripts: {
+				files: ['src/**/*.js', 'spec/**/*.js'],
+				tasks: ['test'],
+				options: {
+					spawn: false
+				}
+			},
+			configFiles: {
+				files: [ 'Gruntfile.js'],
+				options: {
+					reload: true
+				}
+			}
 		}
-
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-jasmine');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	grunt.registerTask('test', ['jshint', 'jasmine']);
 	grunt.registerTask('default', ['test']);

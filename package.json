@@ -1,17 +1,18 @@
 {
-	"name": "Battleship",
-	"version": "0.0.1",
-	"description": "JavaScript implementation of the Battleship game (http://en.wikipedia.org/wiki/Battleship_(game))",
-	"main": "index.js",
-	"author": "",
-	"license": "ISC",
-	"scripts": {
-		"test": "grunt test"
-	},
-	"devDependencies": {
-		"grunt": "^0.4.4",
-		"grunt-contrib-jasmine": "^0.5.3",
-		"grunt-template-jasmine-requirejs": "~0.1.10",
-		"grunt-contrib-jshint": "~0.10.0"
-	}
+  "name": "Battleship",
+  "version": "0.0.1",
+  "description": "JavaScript implementation of the Battleship game (http://en.wikipedia.org/wiki/Battleship_(game))",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-jasmine": "^0.5.3",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-template-jasmine-requirejs": "~0.1.10"
+  }
 }
