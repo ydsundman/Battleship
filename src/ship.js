@@ -1,3 +1,5 @@
 define('ship', function() {
-	return function(){};
+	return function(size) {
+
+	};
 });
