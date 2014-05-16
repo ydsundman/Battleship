@@ -5,6 +5,15 @@ module.exports = function(grunt) {
 	// Project configuration.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+		requirejs: {
+			compile: {
+				options: {
+					baseUrl: 'src',
+					name: 'app',
+					out: 'dist/battleship-app.js'
+				}
+			}
+		},
 		jasmine: {
 			battleship: {
 				src: 'src/**/*.js',
@@ -33,7 +42,7 @@ module.exports = function(grunt) {
 		watch: {
 			scripts: {
 				files: ['src/**/*.js', 'spec/**/*.js'],
-				tasks: ['test'],
+				tasks: ['default'],
 				options: {
 					spawn: false
 				}
@@ -50,8 +59,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jasmine');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-requirejs');
 
 	grunt.registerTask('test', ['jshint', 'jasmine']);
-	grunt.registerTask('default', ['test']);
+	grunt.registerTask('default', ['test', 'requirejs']);
 
 };
