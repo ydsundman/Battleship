@@ -9,8 +9,14 @@ module.exports = function(grunt) {
 			battleship: {
 				src: 'src/**/*.js',
 				options: {
-					specs: 'spec/*Spec.js',
-					helpers: 'spec/*Helper.js'
+					specs: 'spec/*.spec.js',
+					helpers: 'spec/*Helper.js',
+					template: require('grunt-template-jasmine-requirejs'),
+					templateOptions: {
+						requireConfig: {
+							baseUrl: ''
+						}
+					}
 				}
 			}
 		},
