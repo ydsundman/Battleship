@@ -1,13 +1,10 @@
-define(['game', 'grid', 'ship'], function(Game, Grid, Ship) {
-	describe('Game constructor function', function() {
-		it('should be a function', function() {
-			expect(typeof Game).toBe('function');
+define(['game', 'grid', 'ship'], function(game, Grid, Ship) {
+	describe('game', function() {
+		it('is an object', function() {
+			expect(typeof game).toBe('object');
 		});
 
 		it('should be constructed with a Grid and a Ship', function() {
-			var game = new Game();
-			expect(game.constructor).toBe(Game);
-
 			expect(game.grid).toBeDefined();
 			expect(game.grid instanceof Grid).toBe(true);
 
@@ -15,5 +12,12 @@ define(['game', 'grid', 'ship'], function(Game, Grid, Ship) {
 			expect(game.ship instanceof Ship).toBe(true);
 			expect(game.ship.size).toBe(5);
 		});
+
+		it('startGame should place ship in top left corner', function() {
+			expect(typeof game.startGame).toBe('function');
+			game.startGame();
+			expect(game.inProgress).toBe(true);
+		});
+
 	});
 });

@@ -1,5 +1,5 @@
 /* global document:true */
-require(['game'], function(Game) {
+require(['game'], function(game) {
 	var renderShip = function(ship){
 		var shipString = '<table><tr>';
 		for(var shipLength = 0; shipLength < ship.size; shipLength++){
@@ -22,7 +22,6 @@ require(['game'], function(Game) {
 		return gridString;
 	};
 
-	var game = new Game();
 	var ships = document.getElementById('ships');
 	ships.innerHTML = renderShip(game.ship);
 	var grid = document.getElementById('grid');
