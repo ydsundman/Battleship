@@ -3,8 +3,12 @@ td {
 	background-color: white;
 }
 
-td.ship {
+td.hit, td.ship {
 	background-color: red;
+}
+
+td.miss {
+	background-color: gray;
 }
 
 table, tr {
