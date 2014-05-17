@@ -16,7 +16,7 @@ module.exports = function(grunt) {
 		},
 		jasmine: {
 			battleship: {
-				src: ['src/**/*.js', "!src/app.js"],
+				src: ['src/**/*.js'],
 				options: {
 					specs: 'spec/*.spec.js',
 					helpers: 'spec/*Helper.js',

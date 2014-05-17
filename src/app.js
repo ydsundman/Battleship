@@ -1,29 +1,10 @@
 /* global document:true */
-require(['game'], function(game) {
-	var renderShip = function(ship){
-		var shipString = '<table><tr>';
-		for(var shipLength = 0; shipLength < ship.size; shipLength++){
-			shipString +='<td class="ship"></td>';
-		}
-		shipString += '</tr></table>';
-		return shipString;
+define('app', ['game','renderer'], function(game, renderer) {
+	var init = function() {
+		var ships = document.getElementById('ships');
+		ships.innerHTML = renderer.renderShip(game.ship);
+		var grid = document.getElementById('grid');
+		grid.innerHTML = renderer.renderGrid(game.grid);
 	};
-
-	var renderGrid = function(grid){
-		var gridString = '<table>';
-		for(var row = 0; row < grid.rowCount; row++){
-			gridString += '<tr>';
-			for(var col = 0; col < grid.columnCount; col++){
-				gridString +='<td></td>';
-			}
-			gridString += '</tr>';
-		}
-		gridString += '</table>';
-		return gridString;
-	};
-
-	var ships = document.getElementById('ships');
-	ships.innerHTML = renderShip(game.ship);
-	var grid = document.getElementById('grid');
-	grid.innerHTML = renderGrid(game.grid);
+	return {init: init};
 });
