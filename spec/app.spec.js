@@ -3,13 +3,17 @@ define(['app'], function(app) {
 	describe('app', function() {
 		var shipDiv;
 		var gridDiv;
+		var startButton;
 		beforeEach(function() {
 			shipDiv = document.createElement('div');
 			shipDiv.id = 'ships';
 			gridDiv = document.createElement('div');
 			gridDiv.id = 'grid';
+			startButton = document.createElement('button');
+			startButton.id = 'startGame';
 			document.body.appendChild(shipDiv);
 			document.body.appendChild(gridDiv);
+			document.body.appendChild(startButton);
 		});
 		it('draws the grid and ship', function() {
 			expect(shipDiv.innerHTML).toBeDefined();
@@ -18,29 +22,29 @@ define(['app'], function(app) {
 			expect(shipDiv.innerHTML).toBeDefined();
 			expect(gridDiv.innerHTML).toBeDefined();
 		});
-	});
 
-	describe('init', function() {
-		it('starts the game from scratch', function() {
-			app.init();
-			expect(app.game.inProgress).toBe(false);
+		describe('init', function() {
+			it('starts the game from scratch', function() {
+				app.init();
+				expect(app.game.inProgress).toBe(false);
+			});
+			it('reinitializes the game after being played', function() {
+				app.init();
+				expect(app.game.inProgress).toBe(false);
+				app.start();
+				expect(app.game.inProgress).toBe(true);
+				app.init();
+				expect(app.game.inProgress).toBe(false);
+			});
 		});
-		it('reinitializes the game after being played', function() {
-			app.init();
-			expect(app.game.inProgress).toBe(false);
-			app.start();
-			expect(app.game.inProgress).toBe(true);
-			app.init();
-			expect(app.game.inProgress).toBe(false);
-		});
-	});
 
-	describe('start', function() {
-		it('should start game', function() {
-			app.init();
-			expect(app.game.inProgress).toBe(false);
-			app.start();
-			expect(app.game.inProgress).toBe(true);
+		describe('start', function() {
+			it('should start game', function() {
+				app.init();
+				expect(app.game.inProgress).toBe(false);
+				app.start();
+				expect(app.game.inProgress).toBe(true);
+			});
 		});
 	});
 });
