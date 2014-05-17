@@ -14,6 +14,7 @@
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-contrib-requirejs": "^0.4.4",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-template-jasmine-istanbul": "^0.2.6",
     "grunt-template-jasmine-requirejs": "~0.1.10"
   }
 }

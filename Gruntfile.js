@@ -19,9 +19,23 @@ module.exports = function(grunt) {
 				src: ['src/**/*.js', "!src/main.js"],
 				options: {
 					specs: 'spec/*.spec.js',
-					helpers: 'spec/*Helper.js',
 					template: require('grunt-template-jasmine-requirejs'),
 					templateOptions: {
+						requireConfig: {
+							baseUrl: ''
+						}
+					}
+				}
+			},
+			battleshipCoverage: {
+				src: ['src/**/*.js', "!src/main.js"],
+				options: {
+					specs: 'spec/*.spec.js',
+					template: require('grunt-template-jasmine-istanbul'),
+					templateOptions: {
+						coverage: 'coverage/report.json',
+						report: 'coverage/report',
+						template: require('grunt-template-jasmine-requirejs'),
 						requireConfig: {
 							baseUrl: ''
 						}
