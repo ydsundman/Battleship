@@ -1,5 +1,29 @@
 /* global document:true */
 define(['app'], function(app) {
+	describe('_markAttack', function() {
+		var cell;
+		beforeEach(function() {
+			cell = document.createElement('td');
+			cell.setAttribute('data-row', '1');
+			cell.setAttribute('data-col', '9');
+		});
+		it('should mark the element as miss if there is no ship there', function(){
+			expect(cell.className.indexOf('hit') >= 0).toBe(false);
+			expect(cell.className.indexOf('miss') >= 0).toBe(false);
+			app._markAttack(cell);
+			expect(cell.className.indexOf('hit') >= 0).toBe(false);
+			expect(cell.className.indexOf('miss') >= 0).toBe(true);
+		});
+		it('should mark the element as hit if there is a ship there', function(){
+			app.game.ship.location = [[1,9]];
+			expect(cell.className.indexOf('hit') >= 0).toBe(false);
+			expect(cell.className.indexOf('miss') >= 0).toBe(false);
+			app._markAttack(cell);
+			expect(cell.className.indexOf('hit') >= 0).toBe(true);
+			expect(cell.className.indexOf('miss') >= 0).toBe(false);
+		});
+	});
+
 	describe('app', function() {
 		var shipDiv;
 		var gridDiv;
@@ -51,6 +75,12 @@ define(['app'], function(app) {
 				app.start();
 				expect(app.game.inProgress).toBe(true);
 				expect(shipDiv.innerHTML).toBeFalsy();
+			});
+			it('should disable the start button', function() {
+				app.init();
+				expect(startButton.disabled).toBeFalsy();
+				app.start();
+				expect(startButton.disabled).toBeTruthy();
 			});
 		});
 	});

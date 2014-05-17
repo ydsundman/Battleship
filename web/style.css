@@ -1,6 +1,7 @@
 td {
-	padding: 20px;
+	padding: 19px;
 	background-color: white;
+	border: 1px solid white;
 }
 
 td.hit, td.ship {
