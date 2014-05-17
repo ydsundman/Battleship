@@ -15,7 +15,12 @@ define('app', ['game','renderer'], function(game, renderer) {
 	var registerAttackListener = function() {
 		var grid = document.querySelector('#grid table');
 		grid.addEventListener('click', function(e) {
-			e.target.classList.add('miss');
+			var attackCoordinate = extractCoordinate(e.target);
+			if (game.isAttackHit(attackCoordinate)) {
+				e.target.classList.add('hit');
+			} else {
+				e.target.classList.add('miss');
+			}
 		});
 	};
 	var init = function() {
@@ -23,9 +28,18 @@ define('app', ['game','renderer'], function(game, renderer) {
 		game.reset();
 		renderer.renderGame(game);
 	};
+	var extractCoordinate = function(cell) {
+		var getAsInt = function(attribute) {
+			return parseInt(cell.getAttribute(attribute), 10);
+		};
+		var row = getAsInt('data-row');
+		var col = getAsInt('data-col');
+		return [row, col];
+	};
 	return {
 		init: init,
 		start: start,
-		game: game
+		game: game,
+		_extractCoordinate: extractCoordinate
 	};
 });

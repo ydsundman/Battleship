@@ -1,5 +1,15 @@
 /* global document:true */
 define(['app'], function(app) {
+	describe('_extractCoordinate', function() {
+		it('should extract string coordinates as integers', function(){
+			var td = document.createElement('td');
+			td.setAttribute('data-row', '1');
+			td.setAttribute('data-col', '9');
+			var coord = app._extractCoordinate(td);
+			expect(coord[0]).toBe(1);
+			expect(coord[1]).toBe(9);
+		});
+	});
 	describe('app', function() {
 		var shipDiv;
 		var gridDiv;
