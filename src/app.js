@@ -12,15 +12,18 @@ define('app', ['game','renderer'], function(game, renderer) {
 			start();
 		});
 	};
+	var markAttack = function(cell){
+		var attackCoordinate = extractCoordinate(cell);
+		if (game.isAttackHit(attackCoordinate)) {
+			cell.classList.add('hit');
+		} else {
+			cell.classList.add('miss');
+		}
+	};
 	var registerAttackListener = function() {
 		var grid = document.querySelector('#grid table');
 		grid.addEventListener('click', function(e) {
-			var attackCoordinate = extractCoordinate(e.target);
-			if (game.isAttackHit(attackCoordinate)) {
-				e.target.classList.add('hit');
-			} else {
-				e.target.classList.add('miss');
-			}
+			markAttack(e.target);
 		});
 	};
 	var init = function() {
@@ -40,6 +43,6 @@ define('app', ['game','renderer'], function(game, renderer) {
 		init: init,
 		start: start,
 		game: game,
-		_extractCoordinate: extractCoordinate
+		_markAttack: markAttack
 	};
 });

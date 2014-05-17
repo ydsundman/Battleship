@@ -1,15 +1,29 @@
 /* global document:true */
 define(['app'], function(app) {
-	describe('_extractCoordinate', function() {
-		it('should extract string coordinates as integers', function(){
-			var td = document.createElement('td');
-			td.setAttribute('data-row', '1');
-			td.setAttribute('data-col', '9');
-			var coord = app._extractCoordinate(td);
-			expect(coord[0]).toBe(1);
-			expect(coord[1]).toBe(9);
+	describe('_markAttack', function() {
+		var cell;
+		beforeEach(function() {
+			cell = document.createElement('td');
+			cell.setAttribute('data-row', '1');
+			cell.setAttribute('data-col', '9');
+		});
+		it('should mark the element as miss if there is no ship there', function(){
+			expect(cell.className.indexOf('hit') >= 0).toBe(false);
+			expect(cell.className.indexOf('miss') >= 0).toBe(false);
+			app._markAttack(cell);
+			expect(cell.className.indexOf('hit') >= 0).toBe(false);
+			expect(cell.className.indexOf('miss') >= 0).toBe(true);
+		});
+		it('should mark the element as hit if there is a ship there', function(){
+			app.game.ship.location = [[1,9]];
+			expect(cell.className.indexOf('hit') >= 0).toBe(false);
+			expect(cell.className.indexOf('miss') >= 0).toBe(false);
+			app._markAttack(cell);
+			expect(cell.className.indexOf('hit') >= 0).toBe(true);
+			expect(cell.className.indexOf('miss') >= 0).toBe(false);
 		});
 	});
+
 	describe('app', function() {
 		var shipDiv;
 		var gridDiv;

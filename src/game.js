@@ -7,7 +7,7 @@ define('game', ['grid', 'ship'], function(Grid, Ship) {
 			var areCoordinatesEqual = function (value) {
 				return value[0] === attackCoordinate[0] && value[1] === attackCoordinate[1];
 			};
-			return game.ship.location.some(areCoordinatesEqual);
+			return game.ship.location && game.ship.location.some(areCoordinatesEqual);
 		},
 		start: function() {
 			game.inProgress = true;
