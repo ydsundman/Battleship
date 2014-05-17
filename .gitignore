@@ -26,6 +26,7 @@ node_modules
 
 # IntelliJ
 .idea
+Battleship.iml
 
 # Jasmine
 _SpecRunner.html
