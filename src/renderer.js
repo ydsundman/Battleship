@@ -1,4 +1,16 @@
+/* global document:true */
 define('renderer', function() {
+
+	var renderGame = function(game){
+		var ships = document.getElementById('ships');
+		if (!game.inProgress) {
+			ships.innerHTML = renderShip(game.ship);
+		} else {
+			ships.innerHTML = '';
+		}
+		var grid = document.getElementById('grid');
+		grid.innerHTML = renderGrid(game.grid);
+	};
 	var renderShip = function(ship){
 		var shipString = '<table><tr>';
 		for(var shipLength = 0; shipLength < ship.size; shipLength++){
@@ -7,7 +19,6 @@ define('renderer', function() {
 		shipString += '</tr></table>';
 		return shipString;
 	};
-
 	var renderGrid = function(grid){
 		var gridString = '<table>';
 		for(var row = 0; row < grid.rowCount; row++){
@@ -20,9 +31,7 @@ define('renderer', function() {
 		gridString += '</table>';
 		return gridString;
 	};
-
 	return {
-		renderShip: renderShip,
-		renderGrid: renderGrid
+		renderGame: renderGame
 	};
 });

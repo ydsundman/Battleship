@@ -4,6 +4,7 @@ define('app', ['game','renderer'], function(game, renderer) {
 
 	var start = function() {
 		game.start();
+		renderer.renderGame(game);
 	};
 	var registerStartButtonListener = function() {
 		var button = document.getElementById('startGame');
@@ -14,10 +15,7 @@ define('app', ['game','renderer'], function(game, renderer) {
 	var init = function() {
 		registerStartButtonListener();
 		game.reset();
-		var ships = document.getElementById('ships');
-		ships.innerHTML = renderer.renderShip(game.ship);
-		var grid = document.getElementById('grid');
-		grid.innerHTML = renderer.renderGrid(game.grid);
+		renderer.renderGame(game);
 	};
 	return {
 		init: init,
