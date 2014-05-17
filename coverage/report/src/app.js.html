@@ -199,16 +199,16 @@
     <h1>Code coverage report for <span class="entity">src/app.js</span></h1>
     <h2>
         
-        Statements: <span class="metric">84.21% <small>(16 / 19)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">97.06% <small>(33 / 34)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Branches: <span class="metric">100% <small>(0 / 0)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">100% <small>(2 / 2)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Functions: <span class="metric">71.43% <small>(5 / 7)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">90.91% <small>(10 / 11)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         
-        Lines: <span class="metric">84.21% <small>(16 / 19)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">97.06% <small>(33 / 34)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
@@ -246,54 +246,111 @@
 28
 29
 30
-31</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">9</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">5</span>
-<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">6</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">5</span>
-<span class="cline-any cline-yes">5</span>
-<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/* global document:true */
 define('app', ['game','renderer'], function(game, renderer) {
+	var getStartButton = function() {
+		return document.getElementById('startGame');
+	};
+	var disableStartButton = function() {
+		var button = getStartButton();
+		button.disabled = true;
+	};
 	var start = function() {
+		disableStartButton();
 		game.start();
 		renderer.renderGame(game);
 		registerAttackListener();
 	};
 	var registerStartButtonListener = function() {
-		var button = document.getElementById('startGame');
-		button.addEventListener('click', <span class="fstat-no" title="function not covered" >function() {</span>
-<span class="cstat-no" title="statement not covered" >			button.disabled = true;</span>
-<span class="cstat-no" title="statement not covered" >			start();</span>
-		});
+		var button = getStartButton();
+		button.addEventListener('click', start);
+	};
+	var markAttack = function(cell){
+		var attackCoordinate = extractCoordinate(cell);
+		if (game.isAttackHit(attackCoordinate)) {
+			cell.classList.add('hit');
+		} else {
+			cell.classList.add('miss');
+		}
 	};
 	var registerAttackListener = function() {
 		var grid = document.querySelector('#grid table');
 		grid.addEventListener('click', <span class="fstat-no" title="function not covered" >function(e) {</span>
-<span class="cstat-no" title="statement not covered" >			e.target.classList.add('miss');</span>
+<span class="cstat-no" title="statement not covered" >			markAttack(e.target);</span>
 		});
 	};
 	var init = function() {
@@ -301,17 +358,26 @@ define('app', ['game','renderer'], function(game, renderer) {
 		game.reset();
 		renderer.renderGame(game);
 	};
+	var extractCoordinate = function(cell) {
+		var getAsInt = function(attribute) {
+			return parseInt(cell.getAttribute(attribute), 10);
+		};
+		var row = getAsInt('data-row');
+		var col = getAsInt('data-col');
+		return [row, col];
+	};
 	return {
 		init: init,
 		start: start,
-		game: game
+		game: game,
+		_markAttack: markAttack
 	};
 });</pre></td></tr>
 </table></pre>
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 17 2014 21:23:50 GMT+0200 (CEST)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat May 17 2014 22:51:07 GMT+0200 (CEST)</div>
 </div>
 
 <script src="../prettify.js"></script>
