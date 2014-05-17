@@ -1,16 +1,21 @@
 /* global document:true */
 define('app', ['game','renderer'], function(game, renderer) {
+	var getStartButton = function() {
+		return document.getElementById('startGame');
+	};
+	var disableStartButton = function() {
+		var button = getStartButton();
+		button.disabled = true;
+	};
 	var start = function() {
+		disableStartButton();
 		game.start();
 		renderer.renderGame(game);
 		registerAttackListener();
 	};
 	var registerStartButtonListener = function() {
-		var button = document.getElementById('startGame');
-		button.addEventListener('click', function() {
-			button.disabled = true;
-			start();
-		});
+		var button = getStartButton();
+		button.addEventListener('click', start);
 	};
 	var markAttack = function(cell){
 		var attackCoordinate = extractCoordinate(cell);

@@ -76,6 +76,12 @@ define(['app'], function(app) {
 				expect(app.game.inProgress).toBe(true);
 				expect(shipDiv.innerHTML).toBeFalsy();
 			});
+			it('should disable the start button', function() {
+				app.init();
+				expect(startButton.disabled).toBeFalsy();
+				app.start();
+				expect(startButton.disabled).toBeTruthy();
+			});
 		});
 	});
 });
