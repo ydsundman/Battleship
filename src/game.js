@@ -5,6 +5,7 @@ define('game', ['grid', 'ship'], function(Grid, Ship) {
 		ship: new Ship(5),
 		startGame: function() {
 			game.inProgress = true;
+			game.ship.location = ['a1', 'a2', 'a3', 'a4', 'a5'];
 		},
 		inProgress: false
 	};
