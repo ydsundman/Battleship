@@ -19,4 +19,28 @@ define(['app'], function(app) {
 			expect(gridDiv.innerHTML).toBeDefined();
 		});
 	});
+
+	describe('init', function() {
+		it('starts the game from scratch', function() {
+			app.init();
+			expect(app.game.inProgress).toBe(false);
+		});
+		it('reinitializes the game after being played', function() {
+			app.init();
+			expect(app.game.inProgress).toBe(false);
+			app.start();
+			expect(app.game.inProgress).toBe(true);
+			app.init();
+			expect(app.game.inProgress).toBe(false);
+		});
+	});
+
+	describe('start', function() {
+		it('should start game', function() {
+			app.init();
+			expect(app.game.inProgress).toBe(false);
+			app.start();
+			expect(app.game.inProgress).toBe(true);
+		});
+	});
 });
