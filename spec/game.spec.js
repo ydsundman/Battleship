@@ -23,7 +23,7 @@ define(['game', 'grid', 'ship'], function(game, Grid, Ship) {
 
 		it('should place ship in top left corner which means it covers the first five grid cells', function() {
 			game.start();
-			expect(['a1', 'a2', 'a3', 'a4', 'a5']).toEqual(game.ship.location);
+			expect([[0,0], [0,1], [0,2], [0,3], [0,4]]).toEqual(game.ship.location);
 		});
 	});
 
