@@ -24,7 +24,7 @@ define('renderer', function() {
 		for(var row = 0; row < grid.rowCount; row++){
 			gridString += '<tr>';
 			for(var col = 0; col < grid.columnCount; col++){
-				gridString +='<td></td>';
+				gridString +='<td data-row="' + row + '" data-col="' + col + '"/></td>';
 			}
 			gridString += '</tr>';
 		}
