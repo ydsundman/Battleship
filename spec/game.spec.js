@@ -13,10 +13,15 @@ define(['game', 'grid', 'ship'], function(game, Grid, Ship) {
 			expect(game.ship.size).toBe(5);
 		});
 
-		it('startGame should place ship in top left corner', function() {
+		it('startGame should start game', function() {
 			expect(typeof game.startGame).toBe('function');
 			game.startGame();
 			expect(game.inProgress).toBe(true);
+		});
+
+		it('startGame should place ship in top left corner which means it covers the first five grid cells', function() {
+			game.startGame();
+			expect(['a1', 'a2', 'a3', 'a4', 'a5']).toEqual(game.ship.location);
 		});
 
 	});

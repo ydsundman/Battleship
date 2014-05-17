@@ -9,14 +9,14 @@ module.exports = function(grunt) {
 			compile: {
 				options: {
 					baseUrl: 'src',
-					name: 'app',
+					name: 'main',
 					out: 'dist/battleship-app.js'
 				}
 			}
 		},
 		jasmine: {
 			battleship: {
-				src: ['src/**/*.js', "!src/app.js"],
+				src: ['src/**/*.js', "!src/main.js"],
 				options: {
 					specs: 'spec/*.spec.js',
 					helpers: 'spec/*Helper.js',
@@ -49,6 +49,7 @@ module.exports = function(grunt) {
 			},
 			configFiles: {
 				files: [ 'Gruntfile.js'],
+				tasks: ['default'],
 				options: {
 					reload: true
 				}
@@ -63,5 +64,6 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('test', ['jshint', 'jasmine']);
 	grunt.registerTask('default', ['test', 'requirejs']);
+	grunt.registerTask('bw', ['default', 'watch']);
 
 };
