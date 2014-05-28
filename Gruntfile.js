@@ -76,7 +76,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-requirejs');
 
-	grunt.registerTask('test', ['jshint', 'jasmine']);
+	grunt.registerTask('test', ['jshint', 'jasmine:battleship']);
 	grunt.registerTask('default', ['test', 'requirejs']);
 	grunt.registerTask('bw', ['default', 'watch']);
 
